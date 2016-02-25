@@ -1,9 +1,5 @@
 package br.com.liferay.organization.portlet;
 
-
-
-
-
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.Organization;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
@@ -25,6 +21,14 @@ public class OrganizationListPortlet extends MVCPortlet {
 
 		//OrganizationListPortlet organizations = new OrganizationListPortlet();
 		
+		// 
+		listarOraganizacoes(renderRequest);
+		
+		super.doView(renderRequest, renderResponse);
+
+	}
+
+	private void listarOraganizacoes(RenderRequest renderRequest) {
 		try {
 			
 			List<Organization> org = OrganizationLocalServiceUtil.getOrganizations(-1, -1);
@@ -43,9 +47,6 @@ public class OrganizationListPortlet extends MVCPortlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		super.doView(renderRequest, renderResponse);
-
 	}
 	
 /*	private ArrayList<Organization> getOrganizations() throws SystemException{
